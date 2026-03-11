@@ -57,6 +57,12 @@ const PROJECTS_DATA: Record<string, any> = {
     }
 };
 
+export async function generateStaticParams() {
+    return Object.keys(PROJECTS_DATA).map((id) => ({
+        id: id,
+    }));
+}
+
 export default function ProjectPage({ params }: { params: { id: string } }) {
     const project = PROJECTS_DATA[params.id];
 

@@ -1,52 +1,94 @@
 "use client";
 
 import React from "react";
-import { ProjectCard } from "./ProjectCard";
+import { BlinkitThumbnail } from "./BlinkitThumbnail";
+import { PremiumThumbnail } from "./PremiumThumbnail";
 import { motion } from "framer-motion";
 
-const PROJECTS_DATA = [
+interface ProjectBase {
+    id: string;
+}
+
+interface StandardProject extends ProjectBase {
+    custom: "standard";
+    title: string;
+    subtitle: string;
+    tagline: string;
+    bgColor: string;
+    accentColor: string;
+    screenshotUrl?: string;
+    watermarkIcon: "play" | "heart";
+}
+
+interface BlinkitProject extends ProjectBase {
+    custom: "blinkit";
+}
+
+type ProjectItem = StandardProject | BlinkitProject;
+
+const PROJECTS_DATA: ProjectItem[] = [
+    {
+        id: "blinkit-laundry",
+        custom: "blinkit"
+    },
     {
         id: "upgrade-app",
-        number: "14",
-        title: "Nano Skills - upGrad App",
-        description: "Product Strategy • Feature Addition",
-        imageUrl: "/projects/upgrad_thumbnail_final.png",
+        custom: "standard",
+        title: "upGrad: Nano Skills",
+        subtitle: "Driving EdTech Retention: Micro-learning for the busy professional.",
+        tagline: "upGrad • Strategy • Feature Addition",
+        bgColor: "#E83B46",
+        accentColor: "#ffffff",
+        watermarkIcon: "play",
+        screenshotUrl: "/projects/upgrad_thumbnail_final.png" // Placeholder used previously
     },
     {
-        id: "finance-go",
-        number: "13",
-        title: "Finance Go",
-        description: "Product Vision • Mobile Experience",
-        imageUrl: "/projects/p2.png",
-    },
-    {
-        id: "cosmos-analytics",
-        number: "12",
-        title: "Cosmos Analytics",
-        description: "Product Logic • Data Platform",
-        imageUrl: "/projects/p3.png",
+        id: "elderly-care",
+        custom: "standard",
+        title: "Elderly Care Platform",
+        subtitle: "Designing for the Longevity Economy: Accessible UI for remote vitals tracking.",
+        tagline: "Inclusive Design • Longevity Economy",
+        bgColor: "#0F766E",
+        accentColor: "#ffffff",
+        watermarkIcon: "heart",
+        screenshotUrl: "/projects/elderly_care_thumbnail.png" // Placeholder used previously
     },
 ];
 
 export const ProjectGrid = () => {
     return (
-        <section id="projects" className="px-6 py-20 max-w-7xl mx-auto">
-            <div className="flex flex-col items-center mb-24">
-                <h2 className="text-sm font-bold tracking-[0.3em] opacity-50 mb-4">Selected</h2>
-                <h1 className="text-5xl md:text-7xl font-black text-center tracking-tighter">Featured Work</h1>
-                <div className="w-24 h-px bg-foreground/20 mt-8" />
+        <section id="projects" className="px-6 pt-4 pb-32 max-w-7xl mx-auto">
+            <div className="flex flex-col items-center mb-16 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+                <h2 className="text-xs font-black tracking-[0.4em] opacity-40 mb-6 uppercase text-white">Selected Highlights</h2>
+                <h1 className="text-5xl md:text-8xl font-black text-center tracking-tighter leading-[0.8] mb-12 text-white">
+                    Strategic<br />Impact
+                </h1>
+                <div className="w-24 h-px bg-white/10" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {PROJECTS_DATA.map((project, index) => (
                     <motion.div
                         key={project.id}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1, duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ delay: index * 0.15, duration: 1, ease: [0.33, 1, 0.68, 1] }}
                     >
-                        <ProjectCard {...project} />
+                        {project.custom === "blinkit" ? (
+                            <BlinkitThumbnail id={project.id} />
+                        ) : (
+                            <PremiumThumbnail
+                                id={project.id}
+                                title={project.title}
+                                subtitle={project.subtitle}
+                                tagline={project.tagline}
+                                bgColor={project.bgColor}
+                                accentColor={project.accentColor}
+                                watermarkIcon={project.watermarkIcon}
+                                screenshotUrl={project.screenshotUrl}
+                            />
+                        )}
                     </motion.div>
                 ))}
             </div>

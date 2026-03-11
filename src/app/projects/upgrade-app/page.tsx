@@ -19,15 +19,13 @@ export default function UpgradeAppPage() {
             <Navbar />
 
             {/* ── HERO ── */}
-            <section className="pt-28 pb-10 px-6 max-w-[1400px] mx-auto">
+            <section className="pt-40 pb-10 px-6 max-w-[1400px] mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
                     {/* Left — balanced to phone height */}
                     <div className="lg:col-span-5 flex flex-col justify-center space-y-6">
                         <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
-                            <Link href="/" className="inline-flex items-center gap-2 text-[10px] font-black tracking-[-0.01em] opacity-40">
-                                <ArrowLeft size={12} /> Back to Work
-                            </Link>
+
                         </motion.div>
 
                         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="space-y-5">

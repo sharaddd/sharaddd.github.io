@@ -3,7 +3,9 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { Github, Linkedin, Mail, ArrowLeft } from "lucide-react";
 
 const navItems = [
     { name: "Work", href: "#projects" },
@@ -13,6 +15,8 @@ const navItems = [
 
 export const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const pathname = usePathname();
+    const isProjectPage = pathname !== "/";
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,45 +27,73 @@ export const Navbar = () => {
     }, []);
 
     return (
-        <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-            <motion.nav
-                initial={{ y: -100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, ease: "circOut" }}
-                className={cn(
-                    "flex items-center gap-1 p-1.5 rounded-full border border-black/5 bg-white/80 backdrop-blur-xl transition-all duration-300 shadow-sm",
-                    scrolled && "shadow-lg border-black/10"
-                )}
-            >
-                <Link
-                    href="/"
-                    className="flex items-center gap-2 px-4 py-2 hover:opacity-80 transition-opacity"
-                >
-                    <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center">
-                        <span className="text-white font-bold text-xs">P</span>
-                    </div>
-                    <span className="font-semibold text-sm tracking-tight text-foreground">Portfolio</span>
-                </Link>
-
-                <div className="hidden sm:flex items-center gap-1 mx-2">
-                    {navItems.map((item) => (
+        <header className={cn(
+            "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-b",
+            scrolled
+                ? "bg-white/80 backdrop-blur-xl border-black/5 py-4 shadow-sm"
+                : "bg-white/50 backdrop-blur-sm border-transparent py-6"
+        )}>
+            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+                {/* Left Side: Back Button (Only on project pages) */}
+                <div className="w-48">
+                    {isProjectPage && (
                         <Link
-                            key={item.name}
-                            href={item.href}
-                            className="px-4 py-2 text-sm font-medium text-foreground/60 hover:text-foreground transition-colors relative"
+                            href="/"
+                            className="inline-flex items-center gap-2 text-xs font-black tracking-widest uppercase text-black/40 hover:text-black transition-all group"
                         >
-                            {item.name}
+                            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
+                            Back to Portfolio
                         </Link>
-                    ))}
+                    )}
                 </div>
 
-                <Link
-                    href="#contact"
-                    className="bg-black text-white px-5 py-2 rounded-full text-sm font-semibold hover:scale-105 active:scale-95 transition-all shadow-md ml-2"
-                >
-                    Contact
-                </Link>
-            </motion.nav>
-        </div>
+                {/* Center: Main Nav */}
+                <nav className="flex items-center gap-1 sm:gap-6">
+                    {!isProjectPage ? (
+                        navItems.map((item) => (
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                className="px-4 py-2 text-[15px] font-black text-black/60 hover:text-black transition-colors"
+                            >
+                                {item.name}
+                            </Link>
+                        ))
+                    ) : (
+                        <p className="text-xs font-black tracking-[0.3em] uppercase opacity-20 hidden md:block">Case Study Overview</p>
+                    )}
+
+                    <div className="w-[1px] h-5 bg-black/10 mx-2" />
+
+                    <div className="flex items-center gap-1">
+                        <a
+                            href="https://github.com/sharaddd"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 text-black/60 hover:text-black transition-colors"
+                            aria-label="GitHub"
+                        >
+                            <Github size={20} />
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/sharaddd/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 text-black/60 hover:text-black transition-colors"
+                            aria-label="LinkedIn"
+                        >
+                            <Linkedin size={20} />
+                        </a>
+                        <a
+                            href="mailto:sharaddtiwari@gmail.com"
+                            className="p-2 text-black/60 hover:text-black transition-colors"
+                            aria-label="Email"
+                        >
+                            <Mail size={20} />
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </header>
     );
 };
