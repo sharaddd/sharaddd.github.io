@@ -62,7 +62,7 @@ export const Hero = () => {
                     variants={item}
                     className="text-base md:text-lg text-foreground/40 max-w-2xl mx-auto leading-relaxed font-medium"
                 >
-                    Focused on the <span className="text-foreground font-black text-black/80">Strategic 'Why'</span> before the 'How'. Crafting intentional prototypes to showcase product logic and the strategic thinking behind high-impact solutions.
+                    Focused on the <span className="text-foreground font-black text-black/80">Strategic &apos;Why&apos;</span> before the &apos;How&apos;. Crafting intentional prototypes to showcase product logic and the strategic thinking behind high-impact solutions.
                 </motion.p>
 
                 {/* Buttons */}

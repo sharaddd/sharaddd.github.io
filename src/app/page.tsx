@@ -25,7 +25,7 @@ export default function Home() {
 
       <section id="contact" className="py-20 lg:py-32">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-sm font-bold tracking-[0.3em] opacity-40 mb-4 uppercase">Let's Talk</h2>
+          <h2 className="text-sm font-bold tracking-[0.3em] opacity-40 mb-4 uppercase">Let&apos;s Talk</h2>
           <h1 className="text-4xl md:text-6xl font-black mb-10 tracking-tighter">Have a Project?</h1>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20 animate-in fade-in slide-in-from-bottom-4 duration-1000">

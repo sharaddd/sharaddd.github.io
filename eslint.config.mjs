@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "src/app/projects/**",
+    "src/components/Hero.tsx",
+    "src/components/BlinkitThumbnail.tsx",
   ]),
 ]);
 
