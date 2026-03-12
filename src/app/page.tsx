@@ -13,13 +13,17 @@ export default function Home() {
       </div>
 
       {/* Additional sections can be added here as the portfolio grows */}
-      <section id="about" className="py-20 bg-black/5">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-8">About Me</h2>
-          <p className="text-lg text-foreground/60 leading-relaxed font-medium">
-            I am a product-focused engineer with a passion for building intuitive and impactful digital experiences.
-            I prioritize product logic and strategic thinking to create meaningful solutions.
-          </p>
+      <section id="about" className="py-24 lg:py-32 bg-black/5">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-sm font-bold tracking-[0.3em] opacity-40 mb-12 uppercase text-center">The Narrative</h2>
+          <div className="space-y-8">
+            <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed">
+              I started my journey with a degree in Computer Science, where I learned the logic behind how things are built. But I soon realized that my real curiosity wasn&apos;t just in the &apos;how,&apos; but in the &apos;why&apos;—why we build certain features and how they actually impact the people using them. Today, I&apos;ve evolved into a Product Manager who bridges that technical gap, handling enterprise-scale products where strategic thinking and precision are non-negotiable.
+            </p>
+            <p className="text-xl md:text-2xl text-foreground opacity-60 font-medium leading-relaxed">
+              My approach is rooted in intentional prototyping and a deep empathy for user pain points. I don&apos;t just move tickets; I dive into the product strategy to ensure every feature serves a clear purpose. Whether it&apos;s driving retention for an EdTech giant or piloting a new service for a quick-commerce leader, I focus on building high-impact solutions that feel seamless and intuitive.
+            </p>
+          </div>
         </div>
       </section>
 
