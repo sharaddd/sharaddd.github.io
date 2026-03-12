@@ -33,8 +33,8 @@ export default function Home() {
 
       <section id="contact" className="py-24 lg:py-32">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-sm font-bold tracking-[0.3em] opacity-40 mb-4 uppercase">Let&apos;s Connect</h2>
-          <h1 className="text-4xl md:text-6xl font-black mb-10 tracking-tighter">Looking for a Product Partner?</h1>
+          <h2 className="text-sm font-bold tracking-[0.3em] opacity-40 mb-4 uppercase">Let&apos;s Talk Product</h2>
+          <h1 className="text-4xl md:text-6xl font-black mb-10 tracking-tighter">Open to new opportunities.</h1>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20 animate-in fade-in slide-in-from-bottom-4 duration-1000">
             <a
@@ -85,7 +85,7 @@ export default function Home() {
             </a>
           </div>
           <p className="text-[10px] font-medium text-foreground/30 tracking-widest mt-4 uppercase">
-            © {new Date().getFullYear()} Sharad Tiwari. Crafted with pride.
+            © {new Date().getFullYear()} Sharad Tiwari. Thought by me • Coded by Cursor.
           </p>
         </div>
       </footer>
