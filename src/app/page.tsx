@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { ProjectGrid } from "@/components/ProjectGrid";
+import { Skills } from "@/components/Skills";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Home() {
@@ -12,11 +13,10 @@ export default function Home() {
         <ProjectGrid />
       </div>
 
-      {/* Additional sections can be added here as the portfolio grows */}
-      <section id="about" className="py-24 lg:py-32 bg-black/5">
+      <section id="about" className="pt-24 lg:pt-32 pb-12 bg-black/5">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-sm font-bold tracking-[0.3em] opacity-40 mb-12 uppercase text-center">The Narrative</h2>
-          <div className="space-y-8">
+          <div className="space-y-8 text-center md:text-left">
             <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed">
               I started my journey with a degree in Computer Science, where I learned the logic behind how things are built. But I soon realized that my real curiosity wasn&apos;t just in the &apos;how,&apos; but in the &apos;why&apos;—why we build certain features and how they actually impact the people using them. Today, I&apos;ve evolved into a Product Manager who bridges that technical gap, handling enterprise-scale products where strategic thinking and precision are non-negotiable.
             </p>
@@ -27,10 +27,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="py-20 lg:py-32">
+      <section className="bg-black/5 pb-24 lg:pb-32">
+        <Skills />
+      </section>
+
+      <section id="contact" className="py-24 lg:py-32">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-sm font-bold tracking-[0.3em] opacity-40 mb-4 uppercase">Let&apos;s Talk</h2>
-          <h1 className="text-4xl md:text-6xl font-black mb-10 tracking-tighter">Have a Project?</h1>
+          <h2 className="text-sm font-bold tracking-[0.3em] opacity-40 mb-4 uppercase">Let&apos;s Connect</h2>
+          <h1 className="text-4xl md:text-6xl font-black mb-10 tracking-tighter">Looking for a Product Partner?</h1>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20 animate-in fade-in slide-in-from-bottom-4 duration-1000">
             <a
