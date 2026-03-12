@@ -41,10 +41,15 @@ jobs:
           NEXT_TELEMETRY_DISABLED: 1
           NODE_OPTIONS: "--max-old-space-size=4096"
         
+      - name: Debug Output Directory
+        run: |
+          ls -la
+          ls -la out/ || echo "out directory not found"
+        
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
-          path: ./out
+          path: out
 
   deploy:
     environment:
