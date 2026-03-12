@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,9 +7,14 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "Portfolio | Digital Experiences",
-  description: "A premium portfolio showcasing digital products and interactions.",
+  title: "Sharad Tiwari | Portfolio",
+  description: "Product Management Portfolio of Sharad Tiwari",
 };
 
 export default function RootLayout({
@@ -20,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} font-sans antialiased`}
+        className={`${inter.variable} ${outfit.variable} font-sans antialiased`}
       >
         {children}
       </body>

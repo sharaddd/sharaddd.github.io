@@ -16,7 +16,8 @@
   --color-accent-coral: var(--accent-coral);
   --color-accent-lavender: var(--accent-lavender);
   --color-accent-sky: var(--accent-sky);
-  --font-sans: "Inter", ui-sans-serif, system-ui;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui;
+  --font-display: var(--font-outfit), "Outfit", sans-serif;
 }
 
 

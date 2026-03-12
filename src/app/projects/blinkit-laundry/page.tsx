@@ -701,20 +701,6 @@ export default function BlinkitLaundryPage() {
                 </div>
             </section>
 
-            <style jsx global>{`
-                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Outfit:wght@400;500;700;900&display=swap');
-                
-                body {
-                    font-family: 'Inter', sans-serif;
-                }
-                
-                h1, h2, h3, h4 {
-                    font-family: 'Outfit', sans-serif;
-                }
-
-                .no-scrollbar::-webkit-scrollbar { display: none; }
-                .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-            `}</style>
         </main>
     );
 }
