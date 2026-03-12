@@ -18,10 +18,14 @@ interface StandardProject extends ProjectBase {
     accentColor: string;
     screenshotUrl?: string;
     watermarkIcon: "play" | "heart";
+    strategyTag: string;
+    metricBullet: string;
 }
 
 interface BlinkitProject extends ProjectBase {
     custom: "blinkit";
+    strategyTag: string;
+    metricBullet: string;
 }
 
 type ProjectItem = StandardProject | BlinkitProject;
@@ -29,7 +33,9 @@ type ProjectItem = StandardProject | BlinkitProject;
 const PROJECTS_DATA: ProjectItem[] = [
     {
         id: "blinkit-laundry",
-        custom: "blinkit"
+        custom: "blinkit",
+        strategyTag: "GTM Strategy",
+        metricBullet: "Leveraged dark-store return loops to achieve near-zero rider incremental cost."
     },
     {
         id: "upgrade-app",
@@ -40,7 +46,9 @@ const PROJECTS_DATA: ProjectItem[] = [
         bgColor: "#E83B46",
         accentColor: "#ffffff",
         watermarkIcon: "play",
-        screenshotUrl: "/projects/upgrad_thumbnail_final.png" // Placeholder used previously
+        screenshotUrl: "/projects/upgrad_thumbnail_final.png",
+        strategyTag: "Retention",
+        metricBullet: "Reduced learner drop-off by modularizing curricula into 5-minute daily modules."
     },
     {
         id: "elderly-care",
@@ -51,7 +59,9 @@ const PROJECTS_DATA: ProjectItem[] = [
         bgColor: "#0F766E",
         accentColor: "#ffffff",
         watermarkIcon: "heart",
-        screenshotUrl: "/projects/elderly_care_thumbnail.png" // Placeholder used previously
+        screenshotUrl: "/projects/elderly_care_thumbnail.png",
+        strategyTag: "Vitals Monitoring",
+        metricBullet: "Solved remote caregiver anxiety via real-time vitals tracking and zero-friction dashboard."
     },
 ];
 
@@ -76,7 +86,7 @@ export const ProjectGrid = () => {
                         transition={{ delay: index * 0.15, duration: 1, ease: [0.33, 1, 0.68, 1] }}
                     >
                         {project.custom === "blinkit" ? (
-                            <BlinkitThumbnail id={project.id} />
+                            <BlinkitThumbnail id={project.id} strategyTag={project.strategyTag} metricBullet={project.metricBullet} />
                         ) : (
                             <PremiumThumbnail
                                 id={project.id}
@@ -87,6 +97,8 @@ export const ProjectGrid = () => {
                                 accentColor={project.accentColor}
                                 watermarkIcon={project.watermarkIcon}
                                 screenshotUrl={project.screenshotUrl}
+                                strategyTag={project.strategyTag}
+                                metricBullet={project.metricBullet}
                             />
                         )}
                     </motion.div>

@@ -8,9 +8,11 @@ import { ArrowRight } from "lucide-react";
 
 interface BlinkitThumbnailProps {
     id: string;
+    strategyTag: string;
+    metricBullet: string;
 }
 
-export const BlinkitThumbnail = ({ id }: BlinkitThumbnailProps) => {
+export const BlinkitThumbnail = ({ id, strategyTag, metricBullet }: BlinkitThumbnailProps) => {
     return (
         <motion.div
             initial="initial"
@@ -41,7 +43,10 @@ export const BlinkitThumbnail = ({ id }: BlinkitThumbnailProps) => {
                     {/* Content Layer */}
                     <div className="relative h-full p-8 flex flex-col justify-between z-10">
                         {/* Header Section */}
-                        <div className="space-y-3 pr-12">
+                        <div className="space-y-4 pr-12">
+                            <div className="inline-flex px-2 py-0.5 rounded bg-black/5 border border-black/10">
+                                <span className="text-[9px] font-black uppercase tracking-widest text-black/60">{strategyTag}</span>
+                            </div>
                             <motion.h3
                                 variants={{
                                     initial: { y: 0 },
@@ -51,9 +56,17 @@ export const BlinkitThumbnail = ({ id }: BlinkitThumbnailProps) => {
                             >
                                 Laundry in<br />Gurgaon
                             </motion.h3>
-                            <p className="text-sm font-bold text-black/60 leading-tight max-w-[80%]">
-                                Revamping Doorstep Fabric Care: Trust & Efficiency for a $2.7B Market.
-                            </p>
+                            <div className="space-y-2">
+                                <p className="text-sm font-bold text-black/60 leading-tight max-w-[90%]">
+                                    Revamping Doorstep Fabric Care: Trust & Efficiency for a $2.7B Market.
+                                </p>
+                                <div className="flex gap-2 items-start opacity-70">
+                                    <div className="w-1 h-1 rounded-full bg-black/40 mt-1.5 shrink-0" />
+                                    <p className="text-[11px] font-bold text-black leading-tight italic">
+                                        {metricBullet}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Visual Mockup - iPhone 15 Pro Style */}

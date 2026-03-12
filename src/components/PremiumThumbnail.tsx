@@ -15,6 +15,8 @@ interface PremiumThumbnailProps {
     accentColor: string;
     screenshotUrl?: string;
     watermarkIcon: "play" | "heart";
+    strategyTag: string;
+    metricBullet: string;
 }
 
 export const PremiumThumbnail = ({
@@ -25,7 +27,9 @@ export const PremiumThumbnail = ({
     bgColor,
     accentColor,
     screenshotUrl,
-    watermarkIcon
+    watermarkIcon,
+    strategyTag,
+    metricBullet
 }: PremiumThumbnailProps) => {
     return (
         <motion.div
@@ -62,7 +66,10 @@ export const PremiumThumbnail = ({
                     {/* Content Layer */}
                     <div className="relative h-full p-8 flex flex-col justify-between z-10">
                         {/* Header Section */}
-                        <div className="space-y-3 pr-12">
+                        <div className="space-y-4 pr-12 text-white">
+                            <div className="inline-flex px-2 py-0.5 rounded bg-white/10 border border-white/20">
+                                <span className="text-[9px] font-black uppercase tracking-widest text-white/80">{strategyTag}</span>
+                            </div>
                             <motion.h3
                                 variants={{
                                     initial: { y: 0 },
@@ -72,9 +79,17 @@ export const PremiumThumbnail = ({
                             >
                                 {title}
                             </motion.h3>
-                            <p className="text-sm font-bold text-white/80 leading-tight max-w-[85%]">
-                                {subtitle}
-                            </p>
+                            <div className="space-y-2">
+                                <p className="text-sm font-bold text-white/80 leading-tight max-w-[90%]">
+                                    {subtitle}
+                                </p>
+                                <div className="flex gap-2 items-start opacity-70">
+                                    <div className="w-1 h-1 rounded-full bg-white/40 mt-1.5 shrink-0" />
+                                    <p className="text-[11px] font-bold text-white leading-tight italic">
+                                        {metricBullet}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Visual Mockup - iPhone 15 Pro Style */}
