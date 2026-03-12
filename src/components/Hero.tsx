@@ -22,7 +22,7 @@ export const Hero = () => {
     };
 
     return (
-        <section className="relative flex flex-col items-center justify-center px-4 pt-48 pb-12 text-center overflow-hidden">
+        <section className="relative flex flex-col items-center justify-center px-4 pt-40 pb-12 text-center overflow-hidden">
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-sky/5 blur-[120px] rounded-full -z-10" />
 
@@ -30,7 +30,7 @@ export const Hero = () => {
                 variants={container}
                 initial="hidden"
                 animate="show"
-                className="max-w-5xl space-y-10"
+                className="max-w-5xl space-y-8"
             >
                 {/* Status Pill */}
                 <motion.div
@@ -46,23 +46,17 @@ export const Hero = () => {
 
                 {/* Heading */}
                 <motion.div variants={item} className="space-y-4">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.1] font-medium font-sans">
-                        <span className="text-neutral-400">Hey, I am </span>
-                        <span className="text-black font-bold">Sharad</span>
-                        <br />
-                        <span className="text-black font-bold">Aspiring PM</span>
-                        <br />
-                        <span className="text-neutral-400">Living in </span>
-                        <span className="text-black font-bold">India</span>
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter leading-[1.05] font-black font-display text-black">
+                        Sharad | <span className="text-neutral-300">Product Manager</span>
                     </h1>
                 </motion.div>
 
                 {/* Subtext */}
                 <motion.p
                     variants={item}
-                    className="text-base md:text-lg text-foreground/40 max-w-2xl mx-auto leading-relaxed font-medium"
+                    className="text-lg md:text-xl text-foreground/60 max-w-3xl mx-auto leading-relaxed font-medium"
                 >
-                    Focused on the <span className="text-foreground font-black text-black/80">Strategic &apos;Why&apos;</span> before the &apos;How&apos;. Crafting intentional prototypes to showcase product logic and the strategic thinking behind high-impact solutions.
+                    Bridging <span className="text-black font-bold">technical execution</span> with <span className="text-black font-bold">product strategy</span>. I leverage a computer science foundation to build intentional, high-impact prototypes and drive enterprise solutions.
                 </motion.p>
 
                 {/* Buttons */}
